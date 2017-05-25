@@ -1,4 +1,5 @@
 const request = require('request');
+const axios = request('axios');
 
 var geocodeAddress = (address) => {
     return new Promise((resolve, reject) => {
