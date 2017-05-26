@@ -2,13 +2,16 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// Port for server startup set by Heroku
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 // Create a middleware callback to put up the mainenance page without
 // continuing with the rest of the app
 // app.use((req, res, next) => {
 //     res.render('maintenance.hbs');
-// });
+//  });
 
 // Setup static directory
 app.use(express.static(__dirname + '/public'));
@@ -54,6 +57,6 @@ app.get('/', (req, res) => {
 });
 
 // Start the fucker up!
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
